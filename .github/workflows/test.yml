@@ -1,4 +1,4 @@
-name: Kubectl Action
+name: ARBOrest restart
 
 on:
   workflow_dispatch:
@@ -10,4 +10,4 @@ jobs:
     - uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-    - run: kubectl get pods -n artatol
+    - run: kubectl rollout restart deployment arboeko-helm-postgrest -n rest
